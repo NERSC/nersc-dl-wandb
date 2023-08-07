@@ -1,0 +1,31 @@
+test: &test
+  num_data_workers: 1
+  # model
+  model: 'cnn'
+  in_chan: 1
+  out_chan: 1
+  depth: 5
+  # optimization
+  loss_func: 'mse'
+  optimizer: 'adam'
+  scheduler: 'none'
+  lr: 1E-3
+  max_epochs: 50
+  max_cosine_lr_epochs: 10
+  batch_size: 32
+  valid_batch_size: 32
+  # misc
+  log_to_screen: !!bool True
+  save_checkpoint: !!bool True
+  seed: 0
+  # data
+  train_path: ''
+  val_path: ''
+  # wandb
+  log_to_wandb: !!bool True # will log results to wandb
+  entity: 'nersc'        # YOUR ENTITY OR USERNAME
+  project: 'test'           # YOUR PROJECT NAME
+
+test2:  # inherit configs from the alias test
+  <<: *test
+  batch_size: 16

@@ -1,0 +1,13 @@
+name: my_hpo_sweep
+entity: shas1693
+project: test
+program: dummy
+method: grid
+metric:
+  name: val_loss
+  goal: minimize
+parameters: 
+  lr: 
+    values: [1E-5, 5E-5, 1E-4]
+  batch_size:
+    values: [16, 32]
